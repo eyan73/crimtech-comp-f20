@@ -1,8 +1,12 @@
 import math
 
 def square_root(n):
-    # Your code here!
-    return 0
+    if type(n) == int:
+        if n >= 0:
+            return math.sqrt(n)
+        else:
+            return -1
+    return -1
 
 def test():
     assert square_root(4) == 2

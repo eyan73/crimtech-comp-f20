@@ -1,8 +1,13 @@
 import random
+from random import seed
+from random import randint
 
 def random_ints():
-    # Your code here!
     l = []
+    n = 0
+    while n != 6:
+        n = randint(1,10)
+        l.append(n)
     return l
 
 def test():

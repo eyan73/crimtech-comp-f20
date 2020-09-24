@@ -1,5 +1,16 @@
 def rm_smallest(d):
-    # Your code here!
+    if not bool(d):
+        return d
+    l = []
+    for i in d:
+        value = d.get(i)
+        l.append(value)
+    minval = min(l)
+    for i in d:
+        if d.get(i) == minval:
+            minkey = i
+            break
+    d.pop(minkey)
     return d
 
 def test():
