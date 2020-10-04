@@ -35,35 +35,24 @@ class Snake(object):
         return self.body[0]
 
     def turn(self, dir):
-        self.direction = dir
+        # TODO: See section 3, "Turning the snake".
         pass
 
-    #def collision(self, x, y):
-        #if (x > WIDTH or x < 0 or y > HEIGHT or y < 0):
-            #return True
-        #pass
+    def collision(self, x, y):
+        # TODO: See section 2, "Collisions", and section 4, "Self Collisions"
+        pass
     
     def coyote_time(self):
         # TODO: See section 13, "coyote time".
         pass
 
+    def move(self):
+        # TODO: See section 1, "Move the snake!". You will be revisiting this section a few times.
+        pass
+
     def kill(self):
         # TODO: See section 11, "Try again!"
         self.dead = True
-
-    def move(self):
-        self.body[0] = (self.body[0][0]+ DIR[self.direction][0],self.body[0][1]+ DIR[self.direction][1])
-        self.body[1] = (self.body[1][0]+ DIR[self.direction][0],self.body[1][1]+ DIR[self.direction][1])
-        if (self.body[0][0] > WIDTH or self.body[0][0] < 0 or self.body[0][1] > HEIGHT or self.body[0][1] < 0):
-            kill(self)
-        for i in range(1, self.l):
-            if self.body[0] == self.body[i]:
-                kill(self)
-        pass
-
-    #def kill(self):
-        # TODO: See section 11, "Try again!"
-        #self.dead = True
 
     def draw(self, surface):
         for i in range(len(self.body)):
@@ -107,15 +96,7 @@ class Apple(object):
         self.place([])
 
     def place(self, snake):
-        onbody = True
-        while onbody:
-            newposition1 = rand_int(WIDTH)
-            newposition2 = rand_int(HEIGHT)
-            for i in range(len(snake.body)):
-                if snake.body[i] == (newposition1, newposition2):
-                    break
-            onbody = False
-            self.position = (newposition1, newposition2)
+        # TODO: see section 6, "moving the apple".
         pass
 
     def draw(self, surface):
@@ -154,8 +135,7 @@ def main():
 
         snake.draw(surface)
         apple.draw(surface)
-        if snake.body[0] == apple.position:
-            print("the snake at an apple!")
+        # TODO: see section 5, "Eating the Apple".
         screen.blit(surface, (0,0))
         # TODO: see section 8, "Display the Score"
 
