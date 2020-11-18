@@ -31,7 +31,7 @@ Complete the items above, and check back here after your midterm interview! Howe
 # E. Setting Up.
 Run `npx create-react-app reactions` in this folder. The terminal will report any installation error. If so, you can either fix them by seraching on Google or call us over.
 
-Next, copy the `src` folder into `reactions/src`. This contains the starter code we will use to write the app.
+Next, *delte the `reacitons/src` folder* and copy the `src` folder into `reactions/src`. This contains the starter code we will use to write the app.
 
 The style of thinking necessary for building a react app is quite different from what you may learn in CS 50, so we try to provide you with more guidance here.
 

@@ -9,13 +9,21 @@ class Panel extends React.Component {
     this.process_click = this.process_click.bind(this);
   }
   handle_color = (c) => {
-    // TODO: Your code here!
+    setTimeout(function(){ this.setState({color:'green'}); }, this.true_duration);
   }
   start_count() {
-    // TODO: Your code here!
+    this.setState({start_time:window.performance.now()});
+    this.setState({true_duration:Math.floor(Math.random() * 5) + 2});
+    this.setState({counting:true});
+    this.setState({color:'red'});
   }
   end_count() {
-    // TODO: Your code here!
+    if (window.performance.now() - this.start_time > this.state.true_duration)
+    {
+      this.setState({ran_once:true});
+      this.setState({counting:true});
+      this.setState({reaction_time: window.performance.now() - this.start_time - this.state.true_duration});
+    }
   }
   process_click() {
     if (this.state.counting) {
@@ -25,9 +33,26 @@ class Panel extends React.Component {
   render() {
     let msg = "Hello World!";
     // TODO: Your code here!
+    if (this.state.counting == 'red')
+    {
+      msg = "Wait for Green.";
+    }
+    else if (this.state.counting == 'green')
+    {
+      msg = "Click!";
+    }
+    else if (this.state.ran_once)
+    {
+      msg = "Your reaction time is "+ this.state.reaction_time.toString()+" ms";
+    }
+    else
+    {
+       msg = "Click me to begin!"
+    }
     return (
       <div className = "PanelContainer" onClick = {this.process_click} style={ { background: this.state.color} }>
-        <div className = "Panel">{msg}</div>
+        <div className = "Panel">{msg}
+        </div>
       </div>
     );
   }
